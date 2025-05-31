@@ -10,9 +10,11 @@ dotenv.config();
 
 
 const app = express();
+console.log("CORS origin is:", process.env.FRONTEND_URL);
+console.log("CORS origin is:", process.env.DEPLOYED_FRONTEND_URL);
 
 app.use(cors({
-  origin:process.env.FRONTEND_URL,  
+  origin:process.env.DEPLOYED_FRONTEND_URL,  
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
   credentials: true  // if you want to allow cookies/auth headers
 }))
