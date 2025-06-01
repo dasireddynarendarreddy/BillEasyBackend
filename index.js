@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
  
-
+console.log("****",process.env.DEPLOYED_FRONTEND_URL);
 app.use(cors({
   origin:process.env.DEPLOYED_FRONTEND_URL,  
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
