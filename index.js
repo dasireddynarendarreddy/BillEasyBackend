@@ -10,11 +10,12 @@ dotenv.config();
 
 
 const app = express();
+ console.log("mode",process.env.NODE_ENV)
 console.log("CORS origin is:", process.env.FRONTEND_URL);
 console.log("CORS origin is:", process.env.DEPLOYED_FRONTEND_URL);
 
 app.use(cors({
-  origin:process.env.DEPLOYED_FRONTEND_URL,  
+  origin:process.env.NODE_ENV === 'development'?process.env.FRONTEND_URL:process.env.DEPLOYED_FRONTEND_URL,  
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
   credentials: true  // if you want to allow cookies/auth headers
 }))
@@ -30,3 +31,6 @@ mongoose.connect(process.env.MONGO_URI)
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
     })
     .catch((err) => console.error('MongoDB connection error:', err));
+app.listen(PORT,()=>{
+  console.log("app running on",PORT)
+})
