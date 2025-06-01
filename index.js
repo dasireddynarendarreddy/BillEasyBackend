@@ -13,7 +13,7 @@ const app = express();
  
 console.log("****",process.env.DEPLOYED_FRONTEND_URL);
 app.use(cors({
-  origin:'https://allbooksin.netlify.app',  
+  origin:process.env.FRONTEND_URL,  
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
   credentials: true  // if you want to allow cookies/auth headers
 }))
