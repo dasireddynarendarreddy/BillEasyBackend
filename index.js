@@ -10,9 +10,7 @@ dotenv.config();
 
 
 const app = express();
- console.log("mode",process.env.NODE_ENV)
-console.log("CORS origin is:", process.env.FRONTEND_URL);
-console.log("CORS origin is:", process.env.DEPLOYED_FRONTEND_URL);
+ 
 
 app.use(cors({
   origin:process.env.NODE_ENV === 'development'?process.env.FRONTEND_URL:process.env.DEPLOYED_FRONTEND_URL,  
