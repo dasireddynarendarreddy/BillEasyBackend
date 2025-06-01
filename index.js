@@ -13,7 +13,7 @@ const app = express();
  
 
 app.use(cors({
-  origin:process.env.NODE_ENV === 'development'?process.env.FRONTEND_URL:process.env.DEPLOYED_FRONTEND_URL,  
+  origin:process.env.DEPLOYED_FRONTEND_URL,  
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
   credentials: true  // if you want to allow cookies/auth headers
 }))
